@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Shared File</title>
+		<meta charset="utf-8">
+		<link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQwIDc5LjE2MDQ1MSwgMjAxNy8wNS8wNi0wMTowODoyMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkU0QUZFODlBRUYxQTExRTk5NEYzRDk4QzhDQTE4Q0EzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkU0QUZFODlCRUYxQTExRTk5NEYzRDk4QzhDQTE4Q0EzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTRBRkU4OThFRjFBMTFFOTk0RjNEOThDOENBMThDQTMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTRBRkU4OTlFRjFBMTFFOTk0RjNEOThDOENBMThDQTMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz77Tup6AAAX9ElEQVR42uydDYwcZ3nHZ/bzdu9z7+xz7MYJSdq0ggYpapUPoRQSUUio4zTBaShtE0vQKE1Eq6IUCEqqSlA5VitQAdEIgTClTaGBUJqoQFslQIXyoVapnFKVlDSOnfrs8/k+9vb2bnfvbvo8s7Pr2bn5eN93Z3Zmd/9/6/Hc7O7svjPv+5vned6ZeV/dMAwNgiB36QAEggAIBAEQCAIgEARAIAiAQBAAgSAAAkEABIIACARBAASCAAgEARAIAiAQBEAgCIBAEACBIAACQQAEggAIjgIEARAIAiAQBEAgCIBAEACBIAACQQAEggAIBAEQCIIACAQBEAgCIBAEQCAIgEAQAIEgAAJBAASCAAgEARAIggAIBAEQCAIgEARAIAiAQBAAgSAAAkEABIIACARBAASCAAgE9QIQXdd3vEbbZmhxB9mdZNeS7Y+gjOtkVbI3yF4le4XsRbIfUZnmUYX9LWpD07T4FbKryX6W7EqyfWSjZJOKX3uK7AWyJ8iepHay6fK70QJC291Ki8+SXRrj8f0x2bfI/o7K9/IQN7Ki1aDYpjw+NkFWs8ypDcs062RUpeNZibC8DMNdZAfI3hLx4Xmd7EO0P0/1BBD6PP9xhOyjCWsnfMb4DNk3qKz1AYbhSuuMex3Zz1ln3Iui+CmyMtky2Rmyn5A9oAoOlXuMFh8g+z2yn4/h0B0le4jKb8gAYn5QxGyfP2okWyfJ7iFLDQgQKbIbyD5HNhfjcX1EsfxTZEfIlhPQNo5Kt3sZQGh50OgfHSe7to/BmCB7kOxEAo7lpxXKnyF7gOxcwtrFQRlAZHqxclaCfGkftbNtsk+RPUyutdYnYIzT4mMcN5ONJ6BIXyS7txWaCO7DL9Dir8l+KYGH+HUrLBUKw2XCkNv7DI7W/j1I9kOqtP0JB4NDqd+lP39K9vGEwPE42X2ScDDY/5FQODSrDd8u04BEdWcfh/LXkP1bUkMuKhdX2jNkXyCbTUixGI67CY4twX3IkR2zOkryCW8Pwm1ZJsQ6qUVznaOXqtD+3pZKpZ5JEBzvs8AYT9Bx4i7RQ6K9gZyI0+Jpsrf1STvg6ySXhA1IX19yt+0n5yI3EyTfj7k83F3+p9z1mLBDJQvHbsv7/WKfNQkdgGju/d30Gvfv35BOp4/HVCbu8PhbrXkXAuCIoU3obreGDBMgHmDY/+ZbV67OZDILMcDxDbJb+xyOvbT4p36Cw17/QwuIABj2t75L9h6CxBhyONgL3CIBx8W04BD1in5rE63rGxQ9CAEyEFeb7Tvu9ZrH+zeT/eGQw/Esl2mY4JBKVPrdg0h6jI7XrHfWyN6cy2ZPDikcBwiOquB+MBTf6wc4/MDgvylqGGwPougxmman3TBGyT4DOAL3g29F/0E/weFyq1S7/gfWg4TgMVovOj9/fT6ffx5weMLBYdXP9LPXMGz1ns1mB8uDhOgxTOvYtml/Ajhc9+Mqy3P0BRy83N7e7ly3wdFaHxgP4usRPMou6DE6oWnqrSMjIy8Djg44uIdr1yB4Dfs6RQv97UF8PULQe2Ieo/2ebft7AUd/wOGMHkS8hn29bz2IrMcI8AjC71uvrJDNFguF+pDDwTd1foeslPRwynXpAMFtvTAy0l8eRNVjBHiE9nuGizdx8TaTZG8HHOYV8lISwfDtoWpBYq9bj3VRpQYdDOEw68I2BwCHOcBDYr2GZ9etRzjVsU4LmSQ9k4TkKsxQSiExb79mfe6dQwrHTVrzlvXCICThrusKHqTnOUiCwWit8GO6E2NjY2uAw3cbQ/SGv8jAsHkJ33X791nrY6OjQmXPxHEmUAGDeym2t7b46TYes2k1lUo1QgbD/h4/s/zSkMDxq7T4dgsOWl/d3NyskuUbjc3Jra1NfXNzi44/m3Ghx0gz2g2M6sJ8uCKdyfBNgKblslnuSuVbOmJJwjUbJIYthPZqb7F5EBkwGo2GVqvVGrV6/Swta8RDhipjnH45TW8fo0r/JtXE85dfdlkjZrc/EHCslMt3jOTzD9PxHq/XahfXG40RbvyBjcj3rc43GZbCyIhWLBZNYEL3GoLhlHN9fHw8vtvdRW8HobOUVl1f19bX18sbGxv8TPPIjgJq+mNU4Q9ffvll5xMSEw8EHKdPzx2kJsX7kRWtQ5H3vFoJN1/2JhMTE9posRip13CGU851XlI5eg+ICBh8hqpUKlplba1Rr9ezngXTdPYSv3PFFZd/PSktkMpetOC4xSxjdCF4tHDMzR2k2vSGQ1ODQxScLIVfpVJJy+WykSbhbustSCZ7CYgIGOS+tXK5rK2trW0HjXqo8z9dfx95jaTBwYnsjYEHtbfgSMExd+bMb3G4ag08Lu0FwgRnanJSGx0djSQJd/Madmjot6NP0kXAaFAYtby8zGC0c7oAMPjPY0mCg3KhIu1LG44gALwaRATgSMFx5uxZhuOv+ATlVRaz7LrX2VT3O6tJi3IgbXNrSxsfG3P1Gl0l4QEQiSoTFRhsDAZ7DZHitOHQzekO/igpcFCe1AFHN94jZHCU4OATlB8cKuBoRrP+vLyO33fyiTOdSmmFQkHMayiEU67QRAGIaPK9UatpCwsLZhIuDIZ1FqK/v3LZm960kBQ43MIqv4auAoFfeOKxnRQcZ+fnD9PiSwyHwm8JxN5GV+BQPqplc7ktAiUditcQhChUQNxu+XD7e2VlRVtaXhYCo10p+oXKodefTgIcjUZjh+foJrRS9R4u25lwpFIpITjmz53j6QY+L+QhFDyj73d6n69XKVzjwfKe0/i2FkP7tcpq5Y6JifHQknAnNDtykqhCLC8w+O9z5DWq1aoQHC0wWgff5kmejxuOOsPhlpArnn1Vp7lz+U4pOKg+2nAE1WkPwXmR3nvvvn1737C99uXTc3PvpnzkcfIi02Ek4YHronUg+uFtvozqcdD4Avf8/LxWq9dVvUbrtcall1ySixWOet29t8oHAD2CHi0vONLpdKhwdNN1qwC+uQ8X7dlT9Ujan8hls4fCSMJ910m7ZmbC78VyOyDcC3H27FnzKngXXqMFTDVOOGq1mmdC7nc0DQ8I9C4Sc8d2ZsPKZDJCx2fh/PmPaM0ZlaILn+S9ji8c1on2UwYB4tvAFXuygp5CjSQH4Yt+QXC4QODrSeLSBsPhcZ0jsKF7PfrrB4F4uMYPLh0SheP8+fM8t8gRUe+nkrQrgMOTrt62Z3bWdx+mS6Xn1poxerErr+ERTnk9QhGJBzGabtwTDoFwqsOTxMiGtrGxUdS8unI5wfYJrVTAkfhOczjQbDYr9ITj+cXFnXBwg/XunVXKPSTDRobjXbO7d68KtrGGatetn9fomQdpff3S4iI3LCmv4eVJ2usx3LpRXV/3vc6hEloFegjvlmcHx4QjJwjH4tLSw7T4xI468ypjBOC4wMNh1a/v3rWrLHEWDjUJ95hnMwJAbDvAXnC1UgnFa7Q/YwemV3BUq2ZCbvjAEbGH8AKnCUcuJwTH0tLSo5rbrMN+oZV/z40fAVJ5E8EhlVcaISXhbl5DxYtkZMhu9ViRK990biuYhHt6jV6HWRTrmjkHNYYbQ0++uwPHhCOfz4vBsbzsDkc3HqJ7r2PCsWtmRrrTJeiCn2gS7np/l7mNXHmkcxBKAqvWxPVqSbib19C76xKVVWVtzQyr6Pdu9GuwoSffweGaCceIIBzLKyvucCh6iJDAMeGYUYBDk/ESPl7D8w5ho3nx0ojqSjqddTe5t8fNa4gm4S2vEVf+UalUmgk5w+F35VsBnC4Tep4T8J6RkZHA+3NWymW+NP8XWnMm3NAaunJo5YRjelq9u76Lrls/r9HaKrJerO3mzYd8S+6kqtfw8yS98CCUN7W7cv0ag+GfhcrH7sHgmBNmFgqFwAkzywyHpn2ePM59oSff3YVWJhzTpVJX17LCSsK9vIZsmCUMCFXMKWPb2B+V14jai5RXV9u9VV15CBWv4wejrptwFEXgWF014aBC3Kcr9KyF4CG8wDHhKHUJh9NLdJWEu3mNNjMReJDKamUyjCTcy2tECQjB3XGdQ8VDRAIOT7VsGHcXi8VAOMj7NT0HwaF6pg+9y9cOx9RUOHdBBFzwE03CW16jm/xDChA6SBNhJOFuXiNKz0HxescVctWGrimemX2q43H6zrtHBeCgvIkHrfgi2eGwu267BMeEY2pyMrRbhLYVvEZQOGX3JOZ6JN28QRf8FMOpKPOPlZWVzivkvQ6tvL/zGG34QSE41tYYDn7Q6f1R5BcB4Z8fcCYckyHC4Zqkh+U1DNs2UYRYKT3VtdfwCqea2/ifpWW1THA4763qojGECc5j9Ev3j42OBtbSWrXahiOyq+Jq3/ksbXdgcmIi9JtLw0rCvbyG9dly6ICEmYR3wnShsYXlRZaWl10fdgq961Y+tHqM7P7x8fFAOKo2OJSTaMXEPACcZ+mdAxMRwOHlLVSScDev0dqeTk4rkYZYYSThTq/RAUs3cCwtud54aPiAH8U1D5ftTDioYQXDsb7eCUePPYQPjM/y4N4T4+ORPpbg6zVEk3CjM5yybbtCJ6j9kXiQMJJwN6+hCyTCIlokONxuWfe9Kq7Qo6UQrn2W7A8mBeBYX1/PmjlKCw7F8C8CcHoCh3NkRxGvERBOdXiS0nRpVE+JT2ogDkjABT/RJFx3hFN6SOHV+cVF17ty9fgT86OUyH5MZB94dEnNMWqjodh1G/I1DzMhHx8djfyBtii8Ruu1fD5fLRZdhnUMBZBUCF7DGU55rEvDcf685/MckVwVFwfn6JQoHLXaziFNgx5MUgBHIVwz4RgtFnv2tGcISfiO/IP2a3N6eroo28LkQyyFrls/r9ERbikczAWCw+9JwJ5eFXfAUZqaEoKj5gZHUGgV0FUq3VvnDo4JRzEOOLpIwp2ehEVwZDLptHSkohRidZWEe60reJBzCwsTdCD+3hWOeEOrR0ql0idF9qFer7vD0Y2HUPE6Hp6jWCj0dJwAOxxuXkMknGpB1NLY2FjngNkS7Uy+F6vLJNzVayhcLJw/d25Sa04Xdk1QLBta8i0Wrj00XSo9KgRHo+E5Urzu04B6AI4JR6HHcLh284p4DZ+LgCMjI/yse0cdyZyG5UIsH68hmoTrznCqE5qsSFnOzs+PMxx0QK7xKqtoIhiy13loZnpaCA4emI4W3yS7WSr5Dju02vmdJhzUsGIZYUY1CXd6DbMxZbM8vI8SGEqASHuNgHDKBaLi4tLS9Ty6hVc5zpw9y71V3/byHKL7EQE4H5mZmfkzkTJ4DWkaS2jV+Z1NOPL52IZfUk3CnWI49uzZ0579SjZCCc2DdO01HBDRDn2YFnd6wdFqWKrDfIY9dq5V/vvpTPWXIsfROVK8lPdTTb7FwDHhyMcIh0VAUSUJtyuXy2mzs7PmoNiqYNhCbrEbtyghNsJIwoMg2t7eXiyXy+/ft3fv9+y/P3fmzMUcktDnQ/ccqu9Zun/3rl1CcPAcI35wqA5RaqjmTRe2M+GghhUrHCdPnZrhjknn9QuRcKolHiWe6sPzLvHWa3QiDndkRb/7p2SS8CCIMun0NLnH75yem3vS8hY8ntL1dGDupeV42OGT8pnF8hwycPD+8HPwnmfzKMbHDQ6tmnBks/F6jmZ5r1f1GqypqSmeOcoXDFmPkpFtFF4NXDAJ94Towi30OnfJba2slN/Lgxw7A/4ejaAe9J18P8QHZnfvPiZY8c3hhXxGUFGeekB1gLfmdiYc2QTAYUFwQMVr8NyHnIxzj1VYYEiHWIuLi4as1xDNSZp3Cneur29smHMZdvIhP8NRl+GTKxy03d17Zmf/RgYOzWcCnkhCq+DvlBrvN2qdOPH6Lo6yCIKCzPMbPCloiTyHsy6DwBCd413iOohy162/17B9h329SLEk37jWmrqt2ZPkNeCarjSvnkLYwp4jVDi6CQ27GFg6UXBY9fTnVLaCaDjFF/6mSiUt65iHXQCMaDzI0vKyEUYS7uc1doRbmvlcBA9WoJZga2pz6nl8Jw/Hc3jvRReFCkdX3aFq20lNo9ALvXbixF1Urq8FeQ2ql+3R0dEUew3KmboFI9xZbpcJkDCScD+vobvsKBsPkM2zVrkNlK3cO+UZk7m+yj98aN/evf+QBDi6AMccKV50Ap5e6H9fe+0uWnyVeMh6gZHL5RoERpYn+0w5blXvwmOEDMjKitGRlHeRhPuua+63tLS9SXn1wtyH8l5ABZwmHPuSD0dAuZ6y4KgnoTzkNWaoTJ8kHu5zJuFUPxs8umShUJjgbttsNiudfAuEUuECUi6XDVmvIRJOObuQ3ZZO1Wo1ExYeXX5razuM8Kn9Hp+hqEI287ncSTpzlem3PkEu/cl+hkOzhjSl/YsVDkrEswTBdWbvpKEdpvJska2m0qnNPImO9x76L9sCQqW7ViLHCBmQ1VUjFK8REE7J7ih7E576jcMv/psH197a3DLPR7ZZ40yZtx2kdJ4HWUul03zNRUtTkkfJapmSvQ1aFuh3W9daeDrq22j9n4cBDqrfq2nxrY46sNWns150RweO8zV73bOoXrJ0kMb5diKqh3Q7VPLb1uW1MBLvSABZJUDCSsJVvEaX4YWhy30xw8HTLD8zLJ5jtVIZZU74PBImGPb3O6ogPjAiAqRSMaJKwkPa4bA0dHC0VKlUfkyLNw84GFKASD5RGG0SngDxGfRdVJ4XhjLn0PV/MQEZbDCklJIBZMdduM7cwrGuO+Bw3iof17RrgMOzjp/W7fVmb9yO19p154wQnPXqt63zBOwxFG2c7UQ4xKqurxsD6jVYS2S3DDMcrLVqNUe1Mk9/Trp5hAHzGEJfnpL6NqdXCFpPvtdgLZC9fdjhYI0Wi3WqnK96eYQdkcIAegxlD7K+sWEMSBLuhOMmKtfLww6HLVK4imrpuJRHCPI2ycwxwu3F2mBA3O6X6r9wqqXTZDcDDte6/i4t3t11Yp7g5Dt0QGr1uiHrNRIKBuv/yN5B5fsp4HAF5DqqvOe6BSPsO2sTDUidABkArwE4BFWr1Xi8sdsGEIxoAGk0GkZcV8JD1KscOlAZXwUcgYBcQt//X5y7DxgY0fRi2b2GXw9VwuF4B+AQUz6fP0kV+se+1zg8wuok90pF1ou1ublp+A0zmnC14HhDEA4e8ZCfnbhpGOFoh9WNBtfsP1qdGf3uMaINsba2tow+heM/teYV8jkJOFyHAx0mOGwnRn5W/CWyiwcEjGgA2d7eNvoMjBYcfJ3jXJ/Dwc+j/GZcz3MQJG+lxb+aMx33PxjR5CAJvhI+6HAc0WJ+2CmTyRyn3+cerdqg5RjhJemadqqPDsKPyG7oczhWLa/xcTIj7sKk0+nvUzneQ39WBgCMU6EDQgfixT7Z+a9YnmNZEA6eMPPLCYPjB2RX0T58LVFn01SKn5F5J5Vrvs89xouhA0J6IuE7vUH2+1Rxh0XDEQuOC7PJxi++k/ZeC/DXExlypFJ8U+cvyzSyBEq4LesS4ytxGPIK2aUJ3OF/J/ttalT/LboBP4VLiy+QfTAh4RTPhPsoD2LQDy2Mjl+eFjyL1oclT7Rxi088V5LVRXdUyKzPHjSSpXNkD5BlFCr40wko/wmyB8km+vVUTGW/luy40T86KNXuZQCxvvhoAnZymewI2ZRipT4SY9nnyD5HdgNZShsA8X6Q3UN2MuFwHJV1DMIhVisps0IT7nr8aAx18RMynm7gS1SeimJljtHiMcvN8kWw3WRjEZX3jBWW/g/Z82Q/pHK/og2orN7AQ5wLkl2bsOIxHA+1egSF270sILaDcasVN0edk/BIG3xP1NepDC9FWLk87A2PWJaxAcNjZKUlv4p7z3jE7TUqb1UbUtHxvIoWv0F2O9lbYs45PkR18ZQztYgUEOtHuDHdoTWnTOMzxn7FnVixGtVp64zLt6K/ZJ1xFzWo32GZpcXbtOa8kuy5r9Cat67wDaGFCH6Sr3O8YPVWPUltaNMt9w67FwuChk4ABIIACAQBEAgCIBAEQCAIgEAQAIEgAAJBAASCAAgEQQAEggAIBAEQCAIgEARAIAiAQBAAgSAAAkEABIIACACBIAACQQAEggAIBAEQCAIgEARAIAiAQBAAgSAAAkEQAIEgAAJBAASCAAgEARAIAiAQBEAgCIBAEACBIAACQRAAgSAAAkEABIIACAQBEAgCIBAEQCAIgEAQAIEgCIBAEACBIAACQQAEgnqv/xdgAHVnRs23OoVxAAAAAElFTkSuQmCC"
+		 rel="icon" type="image/x-icon" / <meta property="og:title" content="VAS" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- ###BeginUncompressedCSS### -->
+		<link href="./static/css/desktop.css" rel="stylesheet">
+		<link href="./static/css/mobile.css" rel="stylesheet">
+		<!-- ###EndUncompressedCSS### -->
+
+
+		<!-- ###BeginUncompressedJS### -->
+		<script src="./static/js/jquery.js"></script>
+		<script src="./static/js/nav.js"></script>
+		<script src="./static/js/Site.js"></script>
+		<script src="./static/js/FormManager.js"></script>
+		<script src="./static/js/DataManager.js"></script>
+		<script src="./static/js/ModelManager.js"></script>
+		<script src="./static/js/ScrollManager.js"></script>
+		<script src="./static/js/CanvasManager.js"></script>
+
+		<script src="./static/js/gl-matrix.js"></script>
+		<script src="./static/js/Camera.js"></script>
+		<script src="./static/js/Program.js"></script>
+		<script src="./static/js/ProgramManager.js"></script>
+		<script src="./static/js/TextureManager.js"></script>
+		<script src="./static/js/PointGlobeDrawable.js"></script>
+		<script src="./static/js/NebulaDrawable.js"></script>
+		<script src="./static/js/BokehDrawable.js"></script>
+		<script src="./static/js/BackgroundDrawable.js"></script>
+		<script src="./static/js/RingDrawable.js"></script>
+		<script src="./static/js/EarthquakeDrawable.js"></script>
+		<script src="./static/js/BigQuakeDrawable.js"></script>
+		<script src="./static/js/Model.js"></script>
+		<script src="./static/js/LatLng.js"></script>
+		<script src="./static/js/ProjectionUtil.js"></script>
+
+		<script src="./static/js/Animation.js"></script>
+		<script src="./static/js/Ease.js"></script>
+		<script src="./static/js/Ajax.js"></script>
+		<script src="./static/js/Signal.js"></script>
+		<script src="./static/js/SplitText.js"></script>
+		<script src="./static/js/TweenMax.js"></script>
+		<!-- ###EndUncompressedJS### -->
+		<style type="text/css">
+			.letter-text {
+				color: #FFFFFF;
+				font-size: 14px;
+			}
+			.letter-icon-box a {
+				margin: 0 auto 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="quake-info">
+			<div><span></span></div>
+		</div>
+
+		<div class="header">
+			<div class="logo-mark">
+				<img src="./assets/images/logo_white.jpg">
+				<!-- <span>VAS</span> -->
+			</div>
+
+			<div class="social">
+
+				<ul>
+					<li class="nav-img">
+						<img src="./static/img/nav.png" id='nav-img' />
+						<div class="nav-pop none" id="nav-pop">
+							<span class="sanjiao"></span>
+							<ul>
+								<li class="top-nav-li-pop"><a target="_self" href="./index.html">首页</a></li>
+								<li class="top-nav-li-pop"><a target="_blank" href="./static/pdf/Shared File.pdf">白皮书</a></li>
+								<li class="top-nav-li-pop"><a target="_self" href="./milestone.html">TC 里程碑</a></li>
+								<!-- <li class="top-nav-li-pop"><a target="_blank" href="#downLoad">下载</a></li> -->
+								<li class="top-nav-li-pop"><a target="_blank" href="/github.html">TC 开发中心</a></li>
+                <li class="top-nav-li-pop"><a target="_blank" href="https://tronscan.org/#/contract/THWBNWZb9vk6tfqqyfV2as5czhdj86yV5F/code">区块浏览器</a></li>
+                <li class="top-nav-li-pop"><a target="_blank" href="./Column.html">TC&德汇战略专栏</a></li>
+								<li class="top-nav-li-pop active"><a target="_self" href="#">语言</a></li>
+								<li class="top-nav-li-pop"><a target="_self" href="./index.html"><small>中文</small></a></li>
+								<li class="top-nav-li-pop"><a target="_self" href="./ENmain.html">English</a></li>
+								<!-- <li class="top-nav-li-pop"><a target="_self" href="./KOmain.html">한글</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li class="top-nav-li"><a target="_self" href="./index.html">首页</a>
+						<div class="line"></div>
+					</li>
+					<li class="top-nav-li"><a target="_blank" href="./static/pdf/Shared File.pdf">白皮书</a>
+						<div class="line"></div>
+					</li>
+					<li class="top-nav-li"><a target="_self" href="./milestone.html">TC 里程碑</a>
+						<div class="line"></div>
+					</li>
+					<!-- <li class="top-nav-li"><a target="_blank" href="#downLoad">下载</a> -->
+						<!-- <div class="line"></div> -->
+					<!-- </li> -->
+					<li class="top-nav-li"><a target="_blank" href="/github.html">TC 开发中心</a>
+						<div class="line"></div>
+					</li>
+					<li class="top-nav-li"><a target="_blank" href="https://tronscan.org/#/contract/THWBNWZb9vk6tfqqyfV2as5czhdj86yV5F/code">区块浏览器</a>
+						<div class="line"></div>
+					</li>
+					<li class="top-nav-li"><a target="_blank" href="./Column.html">TC&德汇战略专栏</a>
+						<div class="line"></div>
+					</li>
+					<li class="top-nav-li lang">
+						<div class="lang-show"><span class="lang-text">中文</span><span class="lang-sanjiao sanjiao1 show"></span></div>
+						<div class="lang-list">
+							<!-- <span class="lang-sanjiao sanjiao2"></span> -->
+							<ul>
+								<li>
+									<a target="_self" href="./index.html">中文</a>
+								</li>
+								<li>
+									<a target="_self" href="./ENmain.html">English</a>
+								</li>
+								<li>
+									<!-- <a target="_self" href="./KOmain.html">한글</a> -->
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<canvas id="globekit-canvas" width="1024" height="1024"></canvas>
+		<!-- <div class="letter-icon-box">
+			<a target="_self" href="./letter.html">
+				<img src="./assets/images/letter-icon.png" alt="">
+			</a>
+			<span class="letter-text">公开信</span>
+			<!-- <a target="_blank" href="#">
+            <img src="./assets/images/list.png" alt="">
+        </a> -->
+		</div> -->
+		<div id="scrolling-content">
+			<div id="scrolling-area">
+				<div class="copy-section topic-globekit">
+					<div class="copy-content">
+						<h1 class="animated-text">联袂打造未来区块链全领域生态帝国<span class="emdash"><span> </span></span></h1>
+						<p class="animated-body">
+							</p>
+					</div>
+				</div>
+
+				<div class="copy-section topic-performance">
+					<div class="copy-content">
+						<h1 class="animated-text">永不磨灭的阿波罗之光 <span class="emdash"><span></span></span></h1>
+						<p class="animated-body">哈耶克认为，君主或国家政权一旦拥有铸币权，就无法禁止诱惑地超发货币，而货币的超发，其本质就是对社会公民的第二次征税。</p>
+					</div>
+				</div>
+
+				<div class="copy-section topic-customizable">
+					<div class="copy-content">
+						<h1 class="animated-text">Time Coin生态暨法律 <span class="emdash"><span></span></span></h1>
+						<p class="animated-body">在世界第三次财富再分配的浪潮中，以Time Coin为首的代码将重塑规则秩序，建立不可磨灭的信任关系，在这个世界中，代码暨法律。</p>
+					</div>
+				</div>
+
+				<div class="copy-section topic-platform">
+					<div class="copy-content">
+						<h1 class="animated-text">DeF流动性挖矿<span class="emdash"><span></span></span></h1>
+						<p class="animated-body">
+							从贝本位至今日的金本位，经历了无数货币更迭，TC将带给这个时代第一次真正的资产融合，通过挖矿的方式深度发掘区块链技术，调动Time Coin&德汇传媒社区的用户自治积极性。TC的诞生，这是一场世纪性社会实验。
+						</p>
+					</div>
+				</div>
+
+				<div class="copy-section topic-quote">
+					<div class="copy-content">
+						<h1 class="animated-text">未来金融的先驱者 德汇传媒&Time Coin <span class="emdash"><span></span></span></h1>
+						<p class="animated-body">在Time Coin生态进行挖矿，就像把现金存入瑞士银行理财一样稳定与安全，而且TC的挖矿投入产出更为可观。</p>
+					</div>
+				</div>
+
+				<div class="topic-form" style="display: none">
+					<div class="copy-content">
+						<!-- <h1 class="animated-text">敬请期待<span class="emdash"><span></span></span></h1> -->
+						<div class="wait-box down-pc"></div>
+						<div id="downLoad">
+							<div class="scan-title"><span></span>移动端钱包</div>
+							<div class="scan" style="padding-top: 30px;">
+								<ul class="scan-list">
+									<!-- <li><a id="downLoadPhone1" target="_blank">下载链接&nbsp;①</a></li>
+									<li><a id="downLoadPhone3" target="_blank">下载链接&nbsp;②</a></li>
+									<li><a id="downLoadPhone2" target="_blank">下载链接&nbsp;③</a></li> -->
+									<li><a id="downLoadPhone4" target="_blank">Android下载链接</a></li>
+									<li><a id="downLoadPhone6" target="_blank">IOS下载链接</a></li>
+									<li><a id="downLoadPhone5" target="_blank">Google Play</a></li>
+								</ul>
+							</div>
+							<div class="wait-box active"></div>
+							<div class="down-pc">
+								<div class="scan-title"><span></span>pc端钱包</div>
+								<ul class="scan-list" style="padding-top: 30px;">
+									<li><a target="_blank" href="https://oss.vasblock.com/vas/wallet/pc/VASWallet.dmg"><img src="./static/img/ios.png">Mac&nbsp;</a></li>
+									<li><a target="_blank" href="https://oss.vasblock.com/vas/wallet/pc/VASWallet.exe"><img src="./static/img/win.png">Win&nbsp;</a></li>
+									<li><a target="_blank" href="https://oss.vasblock.com/vas/wallet/pc/vaswallet.deb"><img src="./static/img/linux.png">Linux(deb)</a></li>
+								</ul>
+								<div class="scan-title" style="padding-top: 30px;"><span></span>命令行钱包</div>
+								<ul class="scan-list" style="padding-top: 30px;">
+									<li><a target="_blank" href="/github.html//VASChain">Mac/Linux/Windows</a></li>
+								</ul>
+							</div>
+						</div>
+						<div id="form-section" style="height:0;width:0;">
+							<form id="request-form" action="" method="POST" target="no-target">
+								<div class="input-block" id="block-one">
+									<label for="NAME">Name</label>
+									<input id="NAME" type="text" value="" required name="NAME">
+								</div>
+								<div class="input-block" id="block-two">
+									<label for="COMPANY">Company</label>
+									<input id="COMPANY" type="text" value="" required name="COMPANY">
+								</div>
+								<div class="input-block" id="block-three">
+									<label for="EMAIL">Email</label>
+									<input id="EMAIL" type="email" value="" required name="EMAIL">
+								</div>
+								<div class="textarea-block" id="block-four">
+									<label for="NEEDS">Tell us more about your needs...</label>
+									<textarea id="NEEDS" name="NEEDS"></textarea>
+								</div>
+								<!--<input id="request" type="submit" value="Request a Quote" name="SUBMIT">-->
+							</form>
+							<span id="error-message">* Required</span>
+							<iframe src="about:blank" id="no-target" name="no-target" style="visibility:hidden; display:none"></iframe>
+						</div>
+						<h2 id="success-message"><span class="emdash"><span></span></span></h2>
+					</div>
+				</div>
+				<!-- <div class="copy-section">
+                    <div class="copy-content">
+                            <h1 class="animated-text">数字界的瑞士银行222 <span class="emdash"><span></span></span></h1>
+                            <p class="animated-body">在VAS上进行存托，就像把现金存入瑞士银行一样稳定与安全，但VAS可以带给你更多财富。</p>
+                        </div>
+            </div> -->
+			</div>
+		</div>
+
+		<div id="pagination">
+			<div id="pagination-text">
+				<div id="page-count-tens">
+					<div class="page-numbers">
+						<div class="page-number">0</div>
+					</div>
+				</div>
+
+				<div id="page-count-ones">
+					<div class="page-numbers">
+						<div class="page-number">1</div>
+						<div class="page-number">2</div>
+						<div class="page-number">3</div>
+						<div class="page-number">4</div>
+						<div class="page-number">5</div>
+						<!-- <div class="page-number">6</div> -->
+
+					</div>
+				</div>
+				<span id="page-count-total">/ 5</span>
+			</div>
+
+			<!-- <p class="viz-caption">M 4.5+ Earthquakes, Past Month
+            <a target="_blank" href="https://earthquake.usgs.gov/" target="_blank">Source: USGS.gov
+                <svg xmlns="http://www.w3.org/2000/svg" width="17.06" height="9.281" viewBox="0 0 17 9">
+                    <path d="M1672.08,744.45l-4.07,4.52-0.89-.861L1670,745h-15v-1.021h14.96l-3.27-3.468,0.94-.83Z"
+                        transform="translate(-1655 -739.688)" />
+                </svg>
+            </a>
+        </p> -->
+
+			<ul id="pagination-dots"></ul>
+		</div>
+
+		<div id="mouse-indicator">
+			<div id="mouse-wheel">
+				<div class="mouse-outline">
+					<svg width="18px" height="30px">
+						<path fill="#fff" d="M729,903.789v9.419a9.009,9.009,0,1,0,18,0v-9.419A9.009,9.009,0,1,0,729,903.789Zm9-7.327a7.19,7.19,0,0,1,7,7.327v9.419a7.007,7.007,0,1,1-14,0v-9.419A7.19,7.19,0,0,1,738,896.462Z"
+						 transform="translate(-729 -894.375)" />
+					</svg>
+				</div>
+				<div class="wheel animate">
+					<svg width="2px" height="6px">
+						<path fill="#fff" d="M738,905.358a1.027,1.027,0,0,0,1-1.046v-3.14a1,1,0,1,0-2,0v3.14A1.027,1.027,0,0,0,738,905.358Z"
+						 transform="translate(-737 -900.125)" />
+					</svg>
+				</div>
+			</div>
+		</div>
+		<a id="request" style="height:0;width:0;overflow: hidden;" href="#"><span>Request a Quote</span>
+			<svg xmlns="http://www.w3.org/2000/svg" width="17" height="15" viewBox="0 0 17 15">
+				<path d="M450.622,782.89l-1.648-6.087,13.846,7.249Zm-2.309,3.644-2.094-2.128,2.094-1.879,0.937,1.942Zm14.318-1.316-13.609,6.789,1.619-5.7Z"
+				 transform="translate(-446.219 -776.812)" />
+			</svg>
+		</a>
+		<div class="tip-download">
+			<div class="tip-img"> <img src="assets/images/arrow-top.png"> </div>
+			<div class="tip-text" id="ios"> 请点击右上角··· <br> 选择“在Safari中打开” </div>
+			<div class="tip-text" id="android"> 请点击右上角··· <br> 选择“在浏览器中打开” </div>
+		</div>
+		<script>
+			if (localStorage.getItem("letterShow") === null) {
+				setTimeout(() => {
+					$('.letter-tip-model').fadeIn();
+				}, 2000);
+				$('.pc #toCancel').click(function() {
+					$('.letter-tip-model').fadeOut();
+					$('#letterTip').addClass('tip')
+					$('.letter-tip-nav').fadeIn()
+					setTimeout(() => {
+						$('.letter-tip-nav').fadeOut()
+						setTimeout(() => {
+							$('#letterTip').removeClass('tip')
+						}, 300);
+					}, 5000);
+				})
+				$('.phone #toCancel').click(function() {
+					$('.letter-tip-model').fadeOut();
+					$('#letterTipPhone').addClass('tip')
+					$('.nav-pop').toggleClass('none');
+					$('.letter-tip-nav').fadeIn()
+					setTimeout(() => {
+						$('.letter-tip-nav').fadeOut()
+						$('.nav-pop').addClass('none');
+						setTimeout(() => {
+							$('#letterTipPhone').removeClass('tip')
+						}, 300);
+					}, 5000);
+				})
+				$('#toLetter').click(function() {
+					window.location.replace('ENletter.html');
+				})
+			}
+		</script>
+		<script>
+			Site.init();
+
+			WebFontConfig = {
+				google: {
+					families: ["Roboto:100,300,500:latin"]
+				},
+				/* Called when all the specified web-font provider modules (google, typekit, and/or custom) have reported that they have started loading fonts. */
+				loading: function() {
+					// do something
+				},
+				/* Called when each requested web font has started loading. The fontFamily parameter is the name of the font family, and fontDescription represents the style and weight of the font. */
+				fontloading: function(fontFamily, fontDescription) {
+					// do something
+				},
+				/* Called when each requested web font has finished loading. The fontFamily parameter is the name of the font family, and fontDescription represents the style and weight of the font. */
+				fontactive: function(fontFamily, fontDescription) {
+					// do something
+				},
+				/* Called if a requested web font failed to load. The fontFamily parameter is the name of the font family, and fontDescription represents the style and weight of the font. */
+				fontinactive: function(fontFamily, fontDescription) {
+					// do something
+				},
+				/* Called when all of the web fonts have either finished loading or failed to load, as long as at least one loaded successfully. */
+				active: function() {
+					setTimeout(function() {
+						Site.fontsDidActivate();
+					}, 250);
+				},
+				/* Called if the browser does not support web fonts or if none of the fonts could be loaded. */
+				inactive: function() {
+					setTimeout(function() {
+						Site.fontsDidActivate();
+					}, 250);
+				}
+			};
+		</script>
+
+		<!-- Self hosting this part, for Ghostery's sake -->
+		<script src="./static/js/WebFontLoader.js"></script>
+		<script type="text/javascript">
+			// $('#downLoadPhone1').click(function() {
+			// 	downLoad('http://t.cn/A6AbdlVa')
+			// })
+			// $('#downLoadPhone2').click(function() {
+			// 	downLoad('http://www.xmwvip.cn/vas')
+			// })
+			// $('#downLoadPhone3').click(function() {
+			// 	downLoad('https://ff.wxyy5.com/app.php/vaswallet')
+			// })
+			$('#downLoadPhone4').click(function() {
+				downLoad('https://vasblock.oss-accelerate.aliyuncs.com/vas/wallet/mobile/android/vas.apk')
+			})
+			$('#downLoadPhone6').click(function() {
+				downLoad('itms-services://?action=download-manifest&url=https://vasblock.oss-accelerate.aliyuncs.com/vas/wallet/mobile/ios/wallet/vas.plist')
+			})
+			$('#downLoadPhone5').click(function() {
+				downLoad('https://play.google.com/store/apps/details?id=com.vasblock.wallet.android')
+			})
+
+			function downLoad(e) {
+				var u = navigator.userAgent;
+				var ua = u.toLowerCase();
+				var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+				var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+				if (ua.match(/MicroMessenger/i) == "micromessenger" || ua.match(/WeiBo/i) == "weibo" ||  ua.match(/QQ\/[0-9]/i)) {
+					$('.tip-download').addClass('active')
+					if (isAndroid) {
+						$('#android').show()
+					} else if (isiOS) {
+						$('#ios').show()
+					}
+				} else {
+					window.open(e);
+				}
+			}
+		</script>
+	</body>
+
+</html>
